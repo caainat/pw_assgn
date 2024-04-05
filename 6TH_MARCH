@@ -1,0 +1,55 @@
+ANS1
+Statistics is a branch of mathematics that involves collecting, organizing, analyzing, interpreting, and presenting data. 
+It provides methods for making inferences and decisions in the presence of uncertainty based on data.
+
+ANS 2 
+- Descriptive Statistics: These statistics summarize and describe features of a dataset. For example, calculating the mean, median, and mode of exam scores in a class.
+- Inferential Statistics: These statistics involve making predictions or inferences about a population based on a sample from that population. For instance, using
+hypothesis testing to determine if a new teaching method improves exam scores.
+
+ANS 3 
+- Qualitative Data: This type of data describes qualities or characteristics and can be categorical. For example, the color of mangoes (yellow, green, orange, red).
+- Quantitative Data: This type of data consists of numerical measurements or counts. It can be further categorized into discrete or continuous data. For instance,
+the height data of a class (continuous) or the number of mangoes exported by a farm (discrete).
+
+ANS 4 
+
+(i) Grading in exam: This dataset represents qualitative data as it consists of categories or labels (A+, A, B+, B, C+, C, D, E).
+
+(ii) Colour of mangoes: This dataset also represents qualitative data as it consists of categories or labels (yellow, green, orange, red).
+
+(iii) Height data of a class: This dataset represents quantitative data as it consists of numerical measurements (178.9, 179, 179.5, 176, 177.2, 178.3, 175.8, ...).
+
+(iv) Number of mangoes exported by a farm: This dataset also represents quantitative data as it consists of numerical measurements (500, 600, 478, 672, ...).
+
+ANS 5
+- Nominal: This level of measurement involves categorical data without any inherent order or ranking. An example could be the colors of cars: red, blue, green.
+- Ordinal: This level involves categorical data with a clear ordering or ranking. For example, educational levels: high school, bachelor's, master's, Ph.D.
+- Interval: This level includes numerical data where the difference between any two values is meaningful but there is no true zero point. An example could be
+temperature measured in Celsius or Fahrenheit.
+- Ratio: This level includes numerical data where there is a true zero point, and ratios are meaningful. For example, height, weight, and counts of objects.
+
+. ANS 6
+Understanding the level of measurement is crucial because it determines the types of statistical analyses and operations that can be performed on the data.
+For instance, it guides whether arithmetic operations such as addition and subtraction are meaningful. For example, while you can add and subtract temperatures
+measured in Celsius, you cannot do so with nominal data like car colors.
+
+ANS 7
+Nominal data represent categories without any inherent order, while ordinal data have a clear order or ranking. For instance, in nominal data like car colors,
+there's no inherent order, whereas in ordinal data like educational levels, there is a clear ranking from lower to higher levels of education.
+
+ANS 8 
+A box plot or box-and-whisker plot is commonly used to display data in terms of range. It shows the minimum, maximum, median, and quartiles of a dataset,
+providing a visual representation of the spread of the data.
+
+ANS 9
+Descriptive statistics are used to summarize and describe features of a dataset, such as mean, median, and standard deviation. Inferential statistics,
+on the other hand, involve making predictions or inferences about a population based on a sample from that population. For example, calculating the average
+income of a population (descriptive) versus testing whether there is a significant difference in income between two groups (inferential).
+
+ANS 10
+- Measures of central tendency include the mean, median, and mode. The mean is the average value of a dataset, the median is the middle value when the data is
+ordered, and the mode is the most frequently occurring value.
+- Measures of variability include the range, variance, and standard deviation. The range is the difference between the maximum and minimum values, the variance
+measures the average squared deviation from the mean, and the standard deviation measures the average deviation from the mean in the same units as the data. 
+These measures help to understand the spread or dispersion of the data.
