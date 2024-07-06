@@ -1,0 +1,74 @@
+Q1) 1) Artificial Intelligence
+
+Artificial Intelligence (AI) is the broad field of creating machines or systems that can perform tasks typically requiring human intelligence. These tasks include reasoning, learning, problem-solving, perception, language understanding, and more.
+
+eg-  A chatbot like ChatGPT,BARD etc
+
+2) Machine Learning
+
+Machine Learning (ML) is a subset of AI that focuses on building systems that can learn from and make decisions based on data. ML algorithms improve their performance over time as they are exposed to more data.
+
+Example: A spam email filter that learns to recognize spam emails based on patterns in the data. It improves its accuracy as it processes more emails and receives feedback on its performance.
+
+ 3) Deep Learning is a subset of ML that uses neural networks with many layers (hence "deep") to model complex patterns in data. These neural networks can automatically discover representations from data, such as recognizing objects in images.
+
+Example: An image recognition system that can identify and classify objects within photos, such as cats, dogs, or cars, using convolutional neural networks (CNNs).
+
+ Q2) 
+
+Supervised Learning is a type of ML where the model is trained on labeled data. The training data includes input-output pairs, and the goal is to learn a mapping from inputs to outputs.
+
+Examples:
+- Linear Regression: Predicting house prices based on features like size, location, etc.
+- Classification: Identifying if an email is spam or not based on its content.
+- Support Vector Machines (SVM): Classifying data into different categories based on labeled training data.
+
+ Q3) What is Unsupervised Learning? List Some Examples.
+
+Unsupervised Learning is a type of ML where the model is trained on unlabeled data. The goal is to find patterns or structure in the data without specific labels.
+
+Examples:
+- Clustering: Grouping customers into segments based on purchasing behavior using algorithms like K-Means.
+- Dimensionality Reduction: Reducing the number of features in a dataset while retaining important information, using techniques like Principal Component Analysis (PCA).
+
+Q4) Difference Between AI, ML, DL, and DS
+
+- AI (Artificial Intelligence): The broad field of creating systems that mimic human intelligence.
+- ML (Machine Learning): A subset of AI focused on algorithms that learn from data.
+- DL (Deep Learning): A subset of ML using neural networks with many layers to learn complex patterns.
+- DS (Data Science): The interdisciplinary field involving the use of statistical and computational techniques to extract insights from data. It encompasses data collection, processing, analysis, and visualization, often using ML and DL methods.
+
+Q5) Main Differences Between Supervised, Unsupervised, and Semi-Supervised Learning
+
+- Supervised Learning : Uses labeled data. The model learns from input-output pairs. Examples: Regression, classification.
+- Unsupervised Learning : Uses unlabeled data. The model finds patterns or structures in the data. Examples: Clustering, dimensionality reduction.
+- Semi-Supervised Learning: Uses a combination of labeled and unlabeled data. The model leverages a small amount of labeled data to guide the learning process with the larger unlabeled dataset. This is useful when labeling data is expensive or time-consuming.
+
+Q6)
+- Training Set : The portion of the data used to train the model. The model learns patterns and relationships in the data.
+- Validation Set: The portion of the data used to tune the model's hyperparameters and evaluate its performance during training. It helps in preventing overfitting by providing a measure of the model's performance on unseen data.
+- Test Set: The portion of the data used to evaluate the final model's performance. It provides an unbiased assessment of the model's accuracy and generalization to new data.
+
+Q7) 
+Unsupervised Learning can be used in anomaly detection by identifying patterns or structures in the data and then detecting data points that deviate significantly from these patterns. 
+
+Example: Using clustering algorithms like K-Means to group data points and then identifying points that do not fit well into any cluster as anomalies.
+
+Q8) Commonly Used Supervised and Unsupervised Learning Algorithms
+
+Supervised Learning Algorithms:
+- Linear Regression
+- Logistic Regression
+- Decision Trees
+- Random Forest
+- Support Vector Machines (SVM)
+- Neural Networks
+- Gradient Boosting Machines (GBM)
+
+Unsupervised Learning Algorithms:
+- K-Means Clustering
+- Hierarchical Clustering
+- Principal Component Analysis (PCA)
+- Independent Component Analysis (ICA)
+- t-Distributed Stochastic Neighbor Embedding (t-SNE)
+- Apriori Algorithm (for association rule learning)
