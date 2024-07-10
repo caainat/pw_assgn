@@ -1,0 +1,56 @@
+ANS 1 
+- Overfitting: Overfitting occurs when a model learns not only the underlying patterns in the training data but also the noise or random fluctuations. This results in a model that performs well on the training data but fails to generalize to new, unseen data. Consequences include poor performance on test data, high variance, and excessive complexity.
+  
+- Underfitting: Underfitting happens when a model is too simple to capture the underlying patterns of the data. It performs poorly on both training and test data due to oversimplified assumptions or constraints.
+  
+Mitigation:
+- Overfitting: Regularization techniques (like Lasso, Ridge), cross-validation, reducing model complexity (e.g., feature selection, reducing model capacity), and using more data can help mitigate overfitting.
+  
+- Underfitting: Increasing model complexity (e.g., adding more features, using a more complex model), reducing regularization, or improving feature engineering can mitigate underfitting.
+
+ANS 2 
+
+To reduce overfitting:
+- Use regularization techniques (like L1/L2 regularization).
+- Cross-validation to tune model parameters effectively.
+- Feature selection to reduce unnecessary complexity.
+- Gathering more data to better capture the underlying patterns.
+
+ANS 3
+
+Underfitting occurs when a model is too simple to learn the underlying patterns of the data, resulting in poor performance on both training and test data.
+
+Scenarios of underfitting:
+- Using a linear model for a nonlinear relationship in the data.
+- Insufficient training data that doesn't represent the true underlying distribution.
+- Over-regularization or constraints that limit the model's ability to learn complex patterns.
+
+ANS 4
+- Bias: Bias measures how closely the model's predictions match the true values. High bias models are too simple and may underfit the data.
+  
+- Variance: Variance measures the model's sensitivity to small fluctuations in the training data. High variance models are too complex and may overfit the data.
+
+The bias-variance tradeoff states that as you decrease bias (e.g., by increasing model complexity), you often increase variance, and vice versa. Finding the right balance between bias and variance leads to optimal model performance.
+
+ANS 5
+
+- Overfitting: Methods include comparing training and validation/test performance; examining learning curves; using regularization techniques and cross-validation to evaluate model performance on unseen data.
+  
+- Underfitting: Look for poor performance on both training and test/validation data; compare model complexity to the complexity needed to fit the data adequately; and analyze learning curves that show stagnant or poor performance.
+
+ANS 6
+
+- High Bias: Example includes a linear regression model used for complex nonlinear relationships. It tends to underfit the data, resulting in poor performance on both training and test data.
+  
+- High Variance: Example includes a very complex deep neural network trained on a small dataset. It fits the training data very well but fails to generalize to new data, showing high variance and overfitting.
+
+ANS 7
+
+Regularization is a technique used to prevent overfitting by adding a penalty term to the model's loss function. This penalty discourages the model from learning overly complex patterns that may not generalize well.
+
+Common regularization techniques:
+- L1 Regularization (Lasso): Adds a penalty proportional to the absolute value of the coefficients.
+- L2 Regularization (Ridge): Adds a penalty proportional to the square of the coefficients.
+- Elastic Net Regularization: Combines both L1 and L2 penalties.
+  
+Regularization helps to reduce model complexity, improve generalization, and mitigate overfitting by penalizing large coefficients that contribute to overfitting on the training data.
