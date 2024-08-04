@@ -1,0 +1,70 @@
+Q1: What is multiprocessing in Python? Why is it useful?
+
+Multiprocessing in Python refers to the ability to run multiple processes simultaneously. The `multiprocessing` module provides a way to create processes and manage them, allowing Python programs to perform parallel processing. 
+Why it is useful:
+1. CPU-bound Tasks: Multiprocessing is particularly useful for CPU-bound tasks where the Global Interpreter Lock (GIL) can be a bottleneck. By running multiple processes, each with its own Python interpreter and memory space, Python can fully utilize multiple CPU cores.
+2. Concurrency: It allows for concurrent execution of tasks, making programs faster and more efficient.
+3. Improved Performance: By dividing work among multiple processes, programs can complete tasks more quickly.
+
+Q2: What are the differences between multiprocessing and multithreading?
+1. GIL (Global Interpreter Lock):
+   - Multithreading: The GIL allows only one thread to execute Python bytecode at a time, which can be a performance bottleneck for CPU-bound tasks.
+   - Multiprocessing: Each process has its own Python interpreter and memory space, thus bypassing the GIL.
+
+2. Memory Space:
+   - Multithreading: Threads share the same memory space, making it easy to share data between threads but also leading to potential issues with data corruption and race conditions.
+   - Multiprocessing: Processes have separate memory spaces, which avoids these issues but makes inter-process communication more complex.
+
+3. Use Cases
+   - Multithreading: Best for I/O-bound tasks (e.g., network operations, file I/O) where waiting for external resources is common.
+   - Multiprocessing: Best for CPU-bound tasks (e.g., complex calculations, data processing) where computation time is significant.
+
+Q3: Write a Python code to create a process using the multiprocessing module.
+import multiprocessing
+
+def worker():
+    print("Worker process is running")
+
+if __name__ == "__main__":
+    process = multiprocessing.Process(target=worker)
+    process.start()
+    process.join()  # Wait for the process to finish
+
+    
+
+Q4: What is a multiprocessing pool in Python? Why is it used?
+
+A multiprocessing pool is a collection of worker processes that can execute tasks concurrently. The `multiprocessing.Pool` class in Python provides a convenient way to parallelize the execution of a function across multiple input values, distributing the input data across processes.
+Why it is used:
+1. Simplifies Parallel Processing: It abstracts away the details of process management, making it easier to parallelize tasks.
+2. Resource Management: It efficiently manages a fixed number of worker processes, avoiding the overhead of creating and destroying processes for each task.
+3. Load Balancing: It can balance the load among multiple processes, ensuring efficient utilization of system resources.
+
+
+
+Q5: How can we create a pool of worker processes in Python using the multiprocessing module?
+import multiprocessing
+def worker_function(x):
+    return x * x
+if __name__ == "__main__":
+    with multiprocessing.Pool(processes=4) as pool:
+        results = pool.map(worker_function, range(10))
+    print(results)
+
+    
+
+Q6: Write a Python program to create 4 processes, each process should print a different number using the multiprocessing module.
+import multiprocessing
+def print_number(number):
+    print(f"Process {multiprocessing.current_process().name} prints: {number}")
+if __name__ == "__main__":
+    numbers = [1, 2, 3, 4]
+    processes = []
+    for number in numbers:
+        process = multiprocessing.Process(target=print_number, args=(number,))
+        processes.append(process)
+        process.start()
+    for process in processes:
+        process.join()
+
+This code creates four separate processes, each printing a different number from the list `numbers`. Each process runs the `print_number` function with a unique number as its argument.
