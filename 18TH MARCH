@@ -1,0 +1,60 @@
+ Q1. What is the Filter method in feature selection, and how does it work?
+The Filter method in feature selection involves selecting features based on their statistical properties. This method assesses each feature independently of any machine learning algorithm. Common statistical measures used include correlation coefficients, chi-square tests, mutual information, and variance thresholds. The idea is to rank the features according to their importance scores and select the top-ranked features.
+
+Q2. How does the Wrapper method differ from the Filter method in feature selection?
+The Wrapper method evaluates feature subsets based on their performance with a specific machine learning algorithm. It involves training the model using different subsets of features and selecting the subset that results in the best model performance, often using cross-validation. Unlike the Filter method, the Wrapper method considers the interaction between features and the specific algorithm being used, making it more computationally intensive but potentially more accurate.
+
+Q3. What are some common techniques used in Embedded feature selection methods?
+Embedded feature selection methods integrate the feature selection process with the model training process. Common techniques include:
+
+- Lasso (L1 regularization): Adds a penalty to the loss function that is proportional to the absolute value of the coefficients, which can shrink some coefficients to zero, effectively selecting features.
+- Ridge (L2 regularization): Adds a penalty proportional to the square of the coefficients, which can help in selecting features by shrinking less important ones.
+- Elastic Net: Combines L1 and L2 regularization to select features.
+- Decision Tree-based methods: Tree-based algorithms like Random Forest and Gradient Boosting provide feature importance scores as part of the model training process.
+- Regularized linear models: These include methods like Elastic Net, which combines L1 and L2 regularization.
+
+Q4. What are some drawbacks of using the Filter method for feature selection?
+
+- Independence Assumption: Filter methods assess each feature independently, ignoring interactions between features, which can lead to suboptimal feature selection.
+- Model Agnosticism: The method does not take into account the specific machine learning model being used, which might result in selecting features that are not the best for the chosen model.
+- Simplistic Criteria: Filter methods often rely on simple statistical measures, which may not capture complex relationships within the data.
+
+Q5. In which situations would you prefer using the Filter method over the Wrapper method for feature selection?
+
+- Large Datasets: When working with very large datasets where the computational cost of wrapper methods would be prohibitive.
+- High Dimensionality: In situations where the number of features is extremely high, filter methods can provide a quick way to reduce dimensionality.
+- Preprocessing Step: As a preliminary step to eliminate irrelevant features before applying more sophisticated methods.
+- Baseline Model: When you need a quick and computationally inexpensive baseline model.
+
+ 6. In a telecom company, you are working on a project to develop a predictive model for customer churn. You are unsure of which features to include in the model because the dataset contains several different ones. Describe how you would choose the most pertinent attributes for the model using the Filter Method.
+
+To select pertinent attributes for the churn prediction model using the Filter method:
+1. Understand the Data: Identify potential features that could influence customer churn, such as call duration, number of complaints, billing information, and service usage patterns.
+2. Statistical Analysis: Apply statistical measures like correlation coefficients, chi-square tests, and mutual information to evaluate the relationship between each feature and the target variable (churn).
+3. Rank Features: Rank features based on their importance scores derived from the statistical measures.
+4. Select Top Features: Choose the top-ranked features that show the strongest relationship with churn.
+5. Validation: Optionally, validate the selected features using a simple machine learning model to ensure that the chosen features provide reasonable predictive power.
+
+Q7. You are working on a project to predict the outcome of a soccer match. You have a large dataset with many features, including player statistics and team rankings. Explain how you would use the Embedded method to select the most relevant features for the model.
+
+To use the Embedded method for selecting relevant features for predicting soccer match outcomes:
+
+1. Choose a Model: Select a machine learning algorithm that supports embedded feature selection, such as a decision tree-based model (e.g., Random Forest or Gradient Boosting) or regularized linear models (e.g., Lasso or Elastic Net).
+2. Train the Model: Train the chosen model on the dataset, allowing it to learn the relationships between features and the target variable (match outcome).
+3. Feature Importance: Extract feature importance scores from the trained model. For tree-based models, this could be the importance of splits, while for regularized models, it could be the magnitude of the coefficients.
+4. Select Features: Identify and select the most important features based on the importance scores.
+5. Model Evaluation: Evaluate the model’s performance using the selected features to ensure that the embedded selection process has indeed improved the model’s predictive power.
+
+Q8. You are working on a project to predict the price of a house based on its features, such as size, location, and age. You have a limited number of features, and you want to ensure that you select the most important ones for the model. Explain how you would use the Wrapper method to select the best set of features for the predictor.
+
+To use the Wrapper method for selecting the best set of features for predicting house prices:
+
+1. Select a Model: Choose a predictive model, such as a linear regression model, decision tree, or any other suitable algorithm.
+2. Define Evaluation Metric: Choose an appropriate evaluation metric, such as Mean Absolute Error (MAE) or Root Mean Squared Error (RMSE), to measure model performance.
+3. Feature Subset Search: Use a search strategy to evaluate different subsets of features. Common strategies include:
+   - Forward Selection: Start with no features, add one feature at a time, and select the one that improves the model performance the most.
+   - Backward Elimination: Start with all features, remove one feature at a time, and retain the feature set that results in the smallest decrease in model performance.
+   - Recursive Feature Elimination (RFE) : Recursively build models, eliminating the least important feature(s) at each iteration.
+4. Cross-Validation: Use cross-validation to assess the performance of each feature subset and avoid overfitting.
+5. Select Best Features: Choose the feature subset that provides the best model performance according to the evaluation metric.
+6. Final Model Training: Train the final model using the selected features and validate its performance on a test dataset.
