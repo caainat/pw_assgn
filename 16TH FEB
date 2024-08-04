@@ -1,0 +1,128 @@
+ Q1. What is a database? Differentiate between SQL and NoSQL databases.
+
+Database:
+A database is an organized collection of structured information, or data, typically stored electronically in a computer system. A database is usually controlled by a database management system (DBMS). Together, the data and the DBMS, along with the applications that are associated with them, are referred to as a database system.
+
+SQL vs. NoSQL Databases:
+
+| Feature       | SQL Databases                              | NoSQL Databases                               |
+|---------------|--------------------------------------------|-----------------------------------------------|
+| Data Model    | Relational (tables with rows and columns)  | Non-relational (document, key-value, graph, or wide-column) |
+| Schema        | Fixed schema                               | Dynamic schema                                |
+| Query Language| Structured Query Language (SQL)            | Various, depending on the type (e.g., MongoDB uses JSON-like query language) |
+| ACID Compliance| Yes (Atomicity, Consistency, Isolation, Durability) | Varies, but often BASE (Basically Available, Soft state, Eventual consistency) |
+| Scaling       | Vertical scaling (adding more power to the same machine) | Horizontal scaling (adding more machines to the pool) |
+| Examples      | MySQL, PostgreSQL, Oracle, MS SQL Server   | MongoDB, Cassandra, Redis, Neo4j              |
+
+Q2. What is DDL? Explain why CREATE, DROP, ALTER, and TRUNCATE are used with an example.
+ANS
+DDL (Data Definition Language):
+DDL is a subset of SQL used to define and modify database structures, such as tables, indexes, and schemas.
+Commands:
+- CREATE: Used to create a new database object, like a table or a database.
+    CREATE TABLE Students (
+        StudentID int,
+        Name varchar(255),
+        Age int
+    );
+  
+
+- DROP:Used to delete an existing database object.
+    DROP TABLE Students;
+
+- ALTER: Used to modify an existing database object.
+    ALTER TABLE Students ADD COLUMN Grade char(1);
+
+- TRUNCATE: Used to remove all records from a table, but the table structure remains.
+    TRUNCATE TABLE Students;
+
+
+
+Q3. What is DML? Explain INSERT, UPDATE, and DELETE with an example
+
+DML (Data Manipulation Language):
+DML is used for managing data within schema objects. These are the operations you use to manipulate the data stored in the database.
+Commands:
+- INSERT: Used to insert data into a table.
+    INSERT INTO Students (StudentID, Name, Age) VALUES (1, 'John Doe', 20);
+
+- UPDATE: Used to modify existing data in a table.
+    UPDATE Students SET Age = 21 WHERE StudentID = 1;
+
+- DELETE: Used to delete existing data from a table.
+    DELETE FROM Students WHERE StudentID = 1;
+
+
+
+ Q4. What is DQL? Explain SELECT with an example.
+DQL (Data Query Language):
+DQL is used to query the database and retrieve data.
+Command:
+- SELECT: Used to retrieve data from a database.
+    SELECT Name, Age FROM Students WHERE Age > 18;
+
+ 
+ Q5. Explain Primary Key and Foreign Key.
+- Primary Key: A primary key is a column or a set of columns that uniquely identifies each row in a table. It must contain unique values and cannot contain NULL values.
+    CREATE TABLE Students (
+        StudentID int PRIMARY KEY,
+        Name varchar(255),
+        Age int
+    );
+  
+
+- Foreign Key: A foreign key is a column or a set of columns that provides a link between data in two tables. It acts as a cross-reference between tables by referencing the primary key of another table
+    CREATE TABLE Enrollment (
+        EnrollmentID int PRIMARY KEY,
+        StudentID int,
+        CourseID int,
+        FOREIGN KEY (StudentID) REFERENCES Students(StudentID)
+    );
+  
+
+Q6. Write a Python code to connect MySQL to Python. Explain the cursor() and execute() method.
+import mysql.connector
+# Establish the connection
+conn = mysql.connector.connect(
+    host="localhost",
+    user="yourusername",
+    password="yourpassword",
+    database="yourdatabase"
+)
+
+# Create a cursor object
+cursor = conn.cursor()
+
+# Execute an SQL query
+cursor.execute("SELECT * FROM Students")
+
+# Fetch and print the results
+results = cursor.fetchall()
+for row in results:
+    print(row)
+
+# Close the cursor and connection
+cursor.close()
+conn.close()
+
+#- cursor(): This method creates a cursor object, which is used to execute SQL commands and fetch data from the database.
+#- execute(): This method executes the given SQL command.
+
+Q7. Give the order of execution of SQL clauses in an SQL query.
+The order of execution of SQL clauses is:
+1. FROM: Determines the source of the data.
+2. WHERE: Filters the rows.
+3. GROUP BY: Groups rows that have the same values in specified columns into aggregate data.
+4. HAVING: Filters groups based on a condition.
+5. SELECT: Selects the columns to be displayed.
+6. ORDER BY: Sorts the result set.
+7. LIMIT: Limits the number of rows returned.
+
+Example:
+SELECT Name, COUNT(*)
+FROM Students
+WHERE Age > 18
+GROUP BY Name
+HAVING COUNT(*) > 1
+ORDER BY Name
+LIMIT 10;
