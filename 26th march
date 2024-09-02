@@ -1,0 +1,83 @@
+Q1. Difference Between Simple Linear Regression and Multiple Linear Regression
+Simple Linear Regression:
+
+Involves a single independent variable (predictor) and one dependent variable (outcome).
+The relationship is modeled as a straight line: 
+𝑌=𝛽0+𝛽1𝑋+𝜖
+Example: Predicting house price (dependent variable) based on its size in square feet (independent variable).
+Multiple Linear Regression:
+
+Involves two or more independent variables and one dependent variable.
+The relationship is modeled as a linear combination of multiple variables: 
+𝑌=𝛽0+𝛽1𝑋1+𝛽2𝑋2+⋯+𝛽\𝑛𝑋𝑛+𝜖
+Example: Predicting house price based on its size, number of bedrooms, and location.
+
+Q2. Assumptions of Linear Regression and Checking Them
+Linearity: The relationship between independent and dependent variables is linear.
+
+Check: Plot the residuals vs. fitted values to see if residuals are randomly dispersed.
+Independence: Observations are independent of each other.
+
+Check: Use the Durbin-Watson test to check for autocorrelation.
+Homoscedasticity: The variance of the residuals is constant across all levels of the independent variables.
+
+Check: Plot the residuals vs. fitted values and look for a “funnel” shape which indicates heteroscedasticity.
+Normality: The residuals (errors) should be normally distributed.
+
+Check: Use a Q-Q plot or the Shapiro-Wilk test.
+No Multicollinearity: Independent variables should not be highly correlated with each other.
+
+Check: Calculate the Variance Inflation Factor (VIF); a VIF > 10 indicates high multicollinearity.
+
+
+Q3. Interpreting the Slope and Intercept in a Linear Regression Model
+Slope (𝛽1 ): Represents the change in the dependent variable for a one-unit change in the independent variable.
+Intercept (𝛽0 ): Represents the value of the dependent variable when the independent variable is zero.
+Example: If we are predicting salary based on years of experience:
+Intercept: The expected salary for someone with 0 years of experience.
+Slope: The increase in salary for each additional year of experience.
+
+
+Q4. Concept of Gradient Descent
+Gradient Descent: An optimization algorithm used to minimize the cost function in machine learning models. It iteratively adjusts the parameters (weights) in the direction that reduces the cost.
+How it works:
+Compute the gradient of the cost function with respect to the parameters.
+Update the parameters by moving them in the opposite direction of the gradient.
+Continue until convergence (i.e., when the cost function stops decreasing significantly).
+Use in Machine Learning: Commonly used in training neural networks, logistic regression, and linear regression models.
+
+
+Q5. Multiple Linear Regression Model
+Description: Extends simple linear regression by incorporating multiple independent variables to predict a dependent variable. The model can be represented as:
+𝑌=𝛽0+𝛽1𝑋1+𝛽2𝑋2+⋯+𝛽𝑛𝑋𝑛+𝜖
+Difference from Simple Linear Regression: It considers the combined effect of multiple predictors rather than just one, which can provide a more accurate prediction if the additional variables are significant.
+
+
+Q6. Multicollinearity in Multiple Linear Regression
+Concept: Multicollinearity occurs when two or more independent variables are highly correlated, leading to unreliable estimates of the coefficients.
+Detection:
+Calculate the Variance Inflation Factor (VIF). A VIF value greater than 10 suggests high multicollinearity.
+Check the correlation matrix for high correlations between predictors.
+Addressing Multicollinearity:
+Remove one of the correlated variables.
+Combine correlated variables into a single predictor using techniques like Principal Component Analysis (PCA).
+
+
+Q7. Polynomial Regression Model
+Description: Polynomial regression is an extension of linear regression where the relationship between the independent variable and the dependent variable is modeled as an nth degree polynomial.
+𝑌=𝛽0+𝛽1𝑋+𝛽2𝑋2+⋯+𝛽𝑛𝑋𝑛+𝜖
+Difference from Linear Regression: While linear regression models a straight line, polynomial regression can model curves, allowing it to fit more complex relationships.
+
+
+Q8. Advantages and Disadvantages of Polynomial Regression
+Advantages:
+
+Better fit for non-linear relationships: Polynomial regression can capture the curvature in data.
+Flexibility: Can model a wide range of relationships by adjusting the degree of the polynomial.
+Disadvantages:
+
+Overfitting: Higher-degree polynomials can fit the training data very closely but may perform poorly on unseen data.
+Interpretability: Coefficients in polynomial regression are harder to interpret, especially as the degree increases.
+When to Use Polynomial Regression:
+
+Use polynomial regression when the relationship between the independent and dependent variables is non-linear and you suspect that a polynomial relationship may better capture the underlying pattern.
