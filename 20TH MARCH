@@ -1,0 +1,72 @@
+Q1. What is data encoding? How is it useful in data science?
+Data encoding refers to the process of converting categorical data into a numerical format, making it suitable for machine learning algorithms. Many machine learning models only understand numerical inputs, so encoding is essential when dealing with non-numeric data.
+
+Usefulness in Data Science:
+
+Improves Model Compatibility: Helps algorithms like decision trees, linear regression, and neural networks process categorical variables.
+Optimizes Performance: Encoded data enhances performance as algorithms can process information faster and more effectively.
+Enables Meaningful Analysis: Categorical data is transformed into a form that models can analyze to identify patterns and relationships.
+Q2. What is nominal encoding? Provide an example of how you would use it in a real-world scenario.
+Nominal encoding converts categorical data into numbers, where no order or ranking is implied. It typically replaces each category with a unique integer.
+
+Example: Suppose you’re working with a dataset of fruit types: {Apple, Orange, Banana}. Using nominal encoding:
+
+Apple → 0
+Orange → 1
+Banana → 2
+In a real-world scenario, consider a dataset containing car brands in a market analysis. If the column 'Car Brand' has {Toyota, Honda, Ford}, you would assign:
+
+Toyota → 0
+Honda → 1
+Ford → 2
+Q3. In what situations is nominal encoding preferred over one-hot encoding? Provide a practical example.
+Nominal encoding is preferred when:
+
+There are many categories: One-hot encoding would create a large number of columns, which can increase model complexity and computational cost.
+No order or hierarchy exists: If the categories are independent, nominal encoding simplifies the data representation.
+Example: In a customer review system for different countries {USA, India, Germany, Australia, Canada}, using one-hot encoding would create five additional columns. Nominal encoding would assign unique numbers to each country, reducing dimensionality and complexity without needing binary columns.
+
+Q4. Suppose you have a dataset containing categorical data with 5 unique values. Which encoding technique would you use to transform this data into a format suitable for machine learning algorithms? Explain why you made this choice.
+If there are only 5 unique values, one-hot encoding would be a suitable choice. Since the number of unique categories is low, creating 5 binary columns would not significantly increase dimensionality, and one-hot encoding is generally preferred for smaller category sets.
+
+One-hot encoding is chosen because:
+
+It avoids assigning arbitrary ordinal relationships to non-ordered categories.
+Models interpret binary features more easily without implying ranking or relationships between categories.
+Q5. In a machine learning project, you have a dataset with 1000 rows and 5 columns. Two of the columns are categorical, and the remaining three columns are numerical. If you were to use nominal encoding to transform the categorical data, how many new columns would be created? Show your calculations.
+If you are using nominal encoding and each categorical column is transformed into one new column (one integer per category), the number of columns remains the same because nominal encoding does not add new columns.
+
+Original number of columns: 5
+After encoding: The two categorical columns remain as two encoded columns.
+Calculation:
+
+Categorical columns (2) → Still 2 columns after nominal encoding.
+Total columns = 3 numerical + 2 encoded categorical = 5 columns (no new columns).
+Q6. You are working with a dataset containing information about different types of animals, including their species, habitat, and diet. Which encoding technique would you use to transform the categorical data into a format suitable for machine learning algorithms? Justify your answer.
+In this case, one-hot encoding is the better choice because the categorical variables like 'species,' 'habitat,' and 'diet' do not imply any ordinal relationship.
+
+Species: {Lion, Tiger, Elephant, etc.} – distinct categories with no ranking.
+Habitat: {Forest, Savannah, Desert, etc.} – no natural order.
+Diet: {Herbivore, Carnivore, Omnivore} – distinct without an inherent hierarchy.
+One-hot encoding ensures that the model treats each category independently, which is important in cases where there’s no relationship between categories.
+
+Q7. You are working on a project that involves predicting customer churn for a telecommunications company. You have a dataset with 5 features, including the customer's gender, age, contract type, monthly charges, and tenure. Which encoding technique(s) would you use to transform the categorical data into numerical data? Provide a step-by-step explanation of how you would implement the encoding.
+The categorical features here are likely gender and contract type. For these:
+
+Gender: {Male, Female} – Since there are only two categories, binary encoding or one-hot encoding can be used. One-hot encoding creates two columns: Male → 0, Female → 1.
+
+Contract Type: {Month-to-Month, One-Year, Two-Year} – Since this feature has three categories and no ordinal relationship, one-hot encoding is ideal. This will create three binary columns representing the contract type.
+
+Step-by-step:
+
+Identify categorical columns: Gender, Contract Type.
+Apply one-hot encoding:
+Gender (Male, Female) → Two binary columns (0 or 1).
+Contract Type (Month-to-Month, One-Year, Two-Year) → Three binary columns (0 or 1).
+Combine the encoded columns with the numerical features (Age, Monthly Charges, Tenure).
+Feed the transformed dataset into the machine learning model for training.
+The final dataset would consist of:
+
+Age, Monthly Charges, Tenure (3 numerical columns).
+2 columns for Gender (one-hot encoded).
+3 columns for Contract Type (one-hot encoded).
