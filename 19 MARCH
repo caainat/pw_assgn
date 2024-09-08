@@ -1,0 +1,75 @@
+Assignment: Data Science Masters
+Q1. 
+What is Min-Max Scaling, and how is it used in data preprocessing?
+Min-Max Scaling is a normalization technique that scales the features of a dataset to a fixed range, typically [0, 1] or [-1, 1]. This ensures that all features have the same scale, which is useful 
+when working with algorithms like KNN or gradient-based methods that are sensitive to the magnitude of features.
+
+
+ 
+Q2. 
+What is the Unit Vector Technique in feature scaling, and how does it differ from Min-Max Scaling?
+The Unit Vector Scaling technique normalizes a feature by scaling each feature vector to have a unit norm, i.e., the Euclidean distance of the vector becomes 1. This scaling is typically used when
+direction is more important than magnitude.
+ 
+Difference:
+
+Min-Max scaling transforms data into a fixed range, preserving the relative distances between data points.
+Unit vector scaling ensures the data points are normalized to have unit norm.
+
+Q3. 
+What is PCA (Principal Component Analysis), and how is it used in dimensionality reduction?
+PCA (Principal Component Analysis) is a technique used to reduce the dimensionality of data while retaining most of its variance. It does this by transforming the original features into new features 
+(principal components) that are linear combinations of the original ones. The components are ordered by the amount of variance they capture, and you can choose a subset of these components to reduce
+the dimensionality.
+
+Example: In a dataset with 10 features, PCA might reduce it to 3 principal components that capture 95% of the variance.
+
+Q4.
+What is the relationship between PCA and Feature Extraction, and how can PCA be used for Feature Extraction?
+PCA is closely related to feature extraction because it transforms the original features into new, uncorrelated features (principal components) that represent the data in a more compact way. These
+principal components are essentially extracted features that capture the most important information in the data.
+
+Example: In an image dataset, the first few principal components might capture the overall shape or color gradients of the image, which are the most important features for classification.
+
+Q5
+. Using Min-Max Scaling to Preprocess a Food Delivery Service Dataset
+For a food delivery service recommendation system with features like price, rating, and delivery time, Min-Max Scaling can be applied to standardize these features. This is essential because the
+price might range from $5 to $100, while delivery time might range from 5 to 60 minutes. Without scaling, features with large ranges can dominate the model.
+
+Steps:
+Identify min and max for each feature.
+Apply the Min-Max Scaling formula to transform all features to a range of [0, 1].
+Use the scaled values to train the recommendation model.
+
+Q6.
+Using PCA to Reduce Dimensionality in a Stock Price Prediction Project
+For a stock price prediction project, the dataset might have many features such as company financial metrics and market trends. High-dimensional data can cause overfitting and long training times.
+PCA helps by reducing the number of features while keeping most of the variance.
+
+Steps:
+Standardize the features (important for PCA).
+Apply PCA to identify principal components that explain the majority of the variance.
+Select the top components that capture the most variance (e.g., 95%) and use them for model training.
+Q7. Min-Max Scaling Example: Dataset [1, 5, 10, 15, 20]
+To scale the values to the range [-1, 1]:
+
+Steps:
+Identify min = 1 and max = 20.
+Apply the Min-Max Scaling formula:
+𝑋𝑠𝑐𝑎𝑙𝑒 =𝑋−120−1×(1−(−1))+(−1)
+X scaled= 20−1X−1 ×(1−(−1))+(−1)
+Scaling each value:
+For 1: −11
+For 5: −0.6842−0.6842
+For 10: −0.2632−0.2632
+For 15: 0.1579
+For 20: 11
+Q8. PCA for Feature Extraction in Dataset [height, weight, age, gender, blood pressure]
+For a dataset with features like height, weight, age, gender, and blood pressure, PCA can be used to extract the most significant features.
+
+Steps:
+
+Standardize the data.
+Apply PCA and calculate the explained variance for each principal component.
+Retain the components that capture a high percentage of the variance (e.g., 90%).
+Principal Components: You may retain 2-3 components depending on the explained variance. For example, height and weight might be correlated, and PCA could combine them into one principal component.
