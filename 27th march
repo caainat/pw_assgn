@@ -1,0 +1,89 @@
+Q1. R-squared in Linear Regression Models
+R 2=1− (SS res /totSS )
+Concept:
+
+R-squared (R²) measures the proportion of the variance in the dependent variable that is predictable from the independent variables. It indicates how well the data fit the model.
+Representation:
+
+An R² of 1 indicates that the model explains all the variance in the dependent variable.
+An R² of 0 indicates that the model explains none of the variance.
+Q2. Adjusted R-squared
+Definition:
+
+Adjusted R-squared adjusts the R² value for the number of predictors in the model. It accounts for the number of predictors and the sample size.
+Calculation:
+
+Adjusted R² is calculated as:
+Adjusted 2=1−(1−𝑅2/𝑛−𝑝−1)×(𝑛−1)
+Where:
+n is the number of observations,
+p is the number of predictors.
+Difference from R-squared:
+
+Unlike R², adjusted R² can decrease if unnecessary predictors are added to the model. It provides a more accurate measure when comparing models with different numbers of predictors.
+Q3. When to Use Adjusted R-squared
+Appropriate Use:
+
+Adjusted R-squared is more appropriate when comparing models with different numbers of predictors. It helps in identifying models that are not only fitting the data well but also do so with the most efficient use of predictors.
+Q4. RMSE, MSE, and MAE in Regression Analysis
+Definitions:
+
+Root Mean Squared Error (RMSE): Measures the standard deviation of the residuals.
+
+Mean Squared Error (MSE): Measures the average of the squares of the errors.
+
+Mean Absolute Error (MAE): Measures the average magnitude of the errors in the predictions.
+
+Q5. Advantages and Disadvantages of RMSE, MSE, and MAE
+Advantages:
+
+RMSE: Sensitive to outliers, provides a measure of fit in the same units as the response variable.
+MSE: Also sensitive to outliers, useful for differentiating between models based on variance.
+MAE: Less sensitive to outliers, provides a clear average error measure.
+Disadvantages:
+
+RMSE and MSE: Can be disproportionately influenced by outliers, which might misrepresent the model's performance.
+MAE: Does not penalize larger errors as heavily as RMSE or MSE.
+Q6. Lasso vs. Ridge Regularization
+Lasso Regularization:
+
+Adds a penalty proportional to the absolute value of the coefficients.
+Can lead to sparse models where some coefficients are zero, effectively performing feature selection.
+Ridge Regularization:
+
+Adds a penalty proportional to the square of the coefficients.
+
+Generally retains all features but reduces the size of coefficients.
+When to Use:
+
+Lasso: When feature selection is desired.
+Ridge: When all features are believed to be relevant but need to be regularized.
+Q7. Regularized Linear Models and Overfitting
+Concept:
+
+Regularized linear models help to prevent overfitting by adding a penalty term to the cost function, which constrains the magnitude of the coefficients.
+Example:
+
+For a model with many predictors and limited data, regularization (like Lasso or Ridge) can prevent the model from fitting noise in the data, leading to better generalization on unseen data.
+Q8. Limitations of Regularized Linear Models
+Limitations:
+
+Regularization may introduce bias, leading to less accurate predictions if important features are penalized too much.
+May not capture complex relationships in the data if the true model is non-linear.
+Q9. Comparing Models with RMSE and MAE
+Comparison:
+
+Model A (RMSE = 10) vs. Model B (MAE = 8):
+MAE is less sensitive to outliers, so if Model B's MAE is lower, it might be more robust in scenarios with outliers.
+Limitations:
+
+RMSE may be more appropriate if larger errors are more significant for the specific application. Thus, the choice of metric depends on the context and specific needs of the analysis.
+Q10. Comparing Regularized Models
+Comparison:
+
+Model A (Ridge, λ = 0.1) vs. Model B (Lasso, λ = 0.5):
+Ridge tends to keep all features but with reduced magnitude, while Lasso can zero out some coefficients.
+Trade-offs:
+
+Ridge is useful when all predictors are relevant but need shrinking, while Lasso is better for feature selection.
+Choice depends on whether you prefer a sparse model (Lasso) or one with all predictors (Ridge) but regularized.
