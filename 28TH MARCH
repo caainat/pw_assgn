@@ -1,0 +1,48 @@
+Q1. What is Ridge Regression, and how does it differ from Ordinary Least Squares (OLS) Regression?
+Ridge Regression is a type of linear regression that adds a penalty (or regularization term) to the OLS regression to prevent overfitting.
+In OLS, the goal is to minimize the sum of squared differences between the predicted and actual values. In Ridge Regression, we minimize the
+same thing but add a penalty that shrinks the size of the coefficients.
+Difference from OLS: OLS can give large coefficients when the predictors (independent variables) are highly correlated, leading to unstable
+predictions. Ridge Regression solves this by shrinking the coefficients, making the model more stable.
+.
+
+Q2. What are the assumptions of Ridge Regression?
+The relationship between independent and dependent variables is linear.
+Errors are normally distributed with a mean of 0.
+Homoscedasticity: Constant variance of errors.
+Independence of errors (errors should not be correlated).
+The model assumes there is no exact multicollinearity (though Ridge can handle moderate multicollinearity better than OLS).
+
+
+Q3. How do you select the value of the tuning parameter (lambda) in Ridge Regression?
+The tuning parameter lambda (λ) controls the strength of the penalty applied to the coefficients. A higher λ value shrinks the coefficients more.
+Lambda is usually selected using cross-validation, a method where the dataset is split into parts, and the model is tested on unseen data to find
+the λ that gives the best predictions.
+
+
+Q4. Can Ridge Regression be used for feature selection? If yes, how?
+Ridge Regression is not typically used for feature selection. Instead of setting some coefficients to exactly zero (as Lasso Regression does), 
+Ridge shrinks all coefficients toward zero. So, it doesn’t eliminate features but reduces the impact of less important ones by shrinking their coefficients.
+
+
+Q5. How does the Ridge Regression model perform in the presence of multicollinearity?
+Ridge Regression performs well when there is multicollinearity (when independent variables are highly correlated). OLS can give unstable or 
+large coefficients when multicollinearity is present, but Ridge Regression reduces the size of the coefficients, making the model more
+stable and reliable in such cases.
+
+
+Q6. Can Ridge Regression handle both categorical and continuous independent variables?
+Yes, Ridge Regression can handle both categorical and continuous variables, but categorical variables need to be converted into
+numerical form (e.g., using one-hot encoding) before applying the Ridge Regression model.
+
+
+Q7. How do you interpret the coefficients of Ridge Regression?
+The coefficients in Ridge Regression still show the direction and relative impact of each predictor on the dependent variable. However, because
+of the penalty applied (due to λ), the coefficients will be smaller than in OLS. A large λ can make coefficients much smaller, reducing their
+interpretability in terms of magnitude but still showing the direction of the relationship (positive or negative).
+
+
+Q8. Can Ridge Regression be used for time-series data analysis? If yes, how?
+Yes, Ridge Regression can be used for time-series analysis, but it's not the first choice. In time series, the relationship between observations
+over time is crucial. You can use Ridge Regression by adding lagged variables (previous time points as independent variables), but more 
+specialized models like ARIMA or Exponential Smoothing are typically better suited for time-series data.
