@@ -1,0 +1,62 @@
+Q1: Difference Between Euclidean and Manhattan Distance in KNN
+Main Difference:
+
+Euclidean Distance: Measures the shortest straight-line distance between two points in a multi-dimensional space. 
+ 
+Manhattan Distance: Measures the sum of the absolute differences across dimensions (like navigating a grid).
+Effect on KNN Performance:
+
+Euclidean Distance emphasizes large differences due to squaring, which can dominate the metric in high-dimensional spaces. It works well when features have similar scales and distributions.
+Manhattan Distance is less sensitive to large differences and is better for data with irregular or sparse distributions.
+Q2: Choosing the Optimal Value of 𝑘
+Techniques to Determine Optimal 
+k:Cross-Validation:Split the data into training and validation sets. Evaluate performance for different 𝑘 values and choose the one with the highest accuracy or lowest error.
+Elbow Method:Plot the validation error against 𝑘 The "elbow point" (where the error stops decreasing significantly) is a good choice.
+Grid Search:
+Use automated tools like GridSearchCV to evaluate a range of 𝑘 values and find the optimal one.
+Domain Knowledge:In some cases, knowledge about the problem domain can guide the choice of k.
+Q3: Effect of Distance Metric Choice on Performance
+Impact on Performance:
+
+Different distance metrics interpret "closeness" differently, which can lead to different nearest neighbors being selected.
+Metrics like Euclidean are sensitive to outliers and feature scaling. Manhattan performs better when the importance of features varies or data is sparse.
+When to Choose a Metric:
+
+Euclidean Distance: When the dataset is dense, and all features are equally important.
+Manhattan Distance: When the dataset is sparse, contains categorical features, or has varied importance among features.
+Minkowski Distance: Generalization that allows switching between Euclidean and Manhattan by tuning the p-parameter.
+Q4: Common Hyperparameters in KNN
+Number of Neighbors (k):Determines the size of the neighborhood considered. Small k makes the model sensitive to noise, while large k smoothens predictions.
+Distance Metric:Choice (Euclidean, Manhattan, Minkowski, etc.) affects neighbor selection and model behavior.
+Weights:Uniform weighting treats all neighbors equally, while distance-based weighting gives closer neighbors more importance.
+Tuning Hyperparameters:Use grid search or random search for systematic exploration.
+Employ cross-validation to evaluate performance.
+Normalize data when using distance-sensitive metrics.
+Q5: Impact of Training Set Size
+Effect on Performance:
+
+Small Training Set: May result in overfitting and poor generalization.
+Large Training Set: Improves performance but increases computational cost, as KNN is memory-intensive.
+Optimization Techniques:
+
+Sampling: Use techniques like stratified sampling to maintain representativeness while reducing size.
+Dimensionality Reduction: Apply PCA or feature selection to reduce feature space, indirectly reducing computational cost.
+
+Q6: Drawbacks of KNN and Solutions
+Potential Drawbacks:
+
+Computationally Expensive: KNN has high memory and computation requirements, especially for large datasets.
+Solution: Use approximate nearest neighbors (e.g., KD-Trees, Ball Trees).
+Sensitivity to Irrelevant Features: Irrelevant or unscaled features distort distance metrics.
+Solution: Feature scaling (e.g., Min-Max or StandardScaler) and feature selection.
+Imbalance in Data: Performance degrades with imbalanced datasets.
+Solution: Use weighted KNN or oversampling techniques like SMOTE.
+Curse of Dimensionality: Performance drops in high-dimensional spaces.
+Solution: Dimensionality reduction (e.g., PCA).
+By addressing these drawbacks, KNN can be more robust and efficient for both classification and regression tasks.
+
+
+
+
+
+
