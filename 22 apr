@@ -1,0 +1,105 @@
+ans 1 
+from sklearn.datasets import load_iris
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load data
+iris = load_iris()
+X, y = iris.data, iris.target
+
+# Train-test split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# KNN Classifier
+knn = KNeighborsClassifier(n_neighbors=3)
+knn.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = knn.predict(X_test)
+print("Accuracy:", accuracy_score(y_test, y_pred))
+
+ans 2 
+from sklearn.datasets import fetch_openml
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+
+# Load dataset
+boston = fetch_openml(name='boston', version=1, as_frame=True)
+X, y = boston.data, boston.target
+
+# Train-test split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# KNN Regressor
+knn = KNeighborsRegressor(n_neighbors=5)
+knn.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = knn.predict(X_test)
+print("MSE:", mean_squared_error(y_test, y_pred))
+
+ans 3 
+
+from sklearn.model_selection import cross_val_score
+import matplotlib.pyplot as plt
+
+iris = load_iris()
+X, y = iris.data, iris.target
+
+k_range = range(1, 31)
+cv_scores = [cross_val_score(KNeighborsClassifier(n_neighbors=k), X, y, cv=5).mean() for k in k_range]
+
+optimal_k = k_range[cv_scores.index(max(cv_scores))]
+print("Optimal K:", optimal_k)
+
+# Plot
+plt.plot(k_range, cv_scores)
+plt.xlabel('Value of K')
+plt.ylabel('Cross-Validated Accuracy')
+plt.title('K vs Accuracy')
+plt.show()
+
+ans 4 
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.3, random_state=42)
+
+knn = KNeighborsRegressor(n_neighbors=5)
+knn.fit(X_train, y_train)
+
+y_pred = knn.predict(X_test)
+print("Scaled MSE:", mean_squared_error(y_test, y_pred))
+
+ans 5
+
+knn_weighted = KNeighborsClassifier(n_neighbors=3, weights='distance')
+knn_weighted.fit(X_train, y_train)
+
+y_pred = knn_weighted.predict(X_test)
+print("Weighted Voting Accuracy:", accuracy_score(y_test, y_pred))
+
+ans 6
+
+def standardize_features(X_train, X_test):
+    scaler = StandardScaler()
+    X_train_scaled = scaler.fit_transform(X_train)
+    X_test_scaled = scaler.transform(X_test)
+    return X_train_scaled, X_test_scaled
+
+ans 7
+
+import numpy as np
+
+def euclidean_distance(point1, point2):
+    return np.sqrt(np.sum((np.array(point1) - np.array(point2))**2))
+
+
+ans 8
+
+def manhattan_distance(point1, point2):
+    return np.sum(np.abs(np.array(point1) - np.array(point2)))
