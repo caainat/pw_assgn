@@ -1,0 +1,208 @@
+ANSWER 1 
+
+Estimation statistics involves using sample data to estimate population parameters.
+
+Point Estimate: A single value that estimates a population parameter (e.g., sample mean as an estimate of population mean).
+
+Interval Estimate: A range of values, often expressed as a confidence interval, that likely includes the population parameter.
+
+ANSWER 2 
+
+import scipy.stats as stats
+import math
+
+def estimate_population_mean(sample_mean, sample_std, n, confidence=0.95):
+    z = stats.norm.ppf((1 + confidence) / 2)
+    margin_of_error = z * (sample_std / math.sqrt(n))
+    return (sample_mean - margin_of_error, sample_mean + margin_of_error)
+    
+ANS 3
+
+Hypothesis Testing is a statistical method to make inferences or decisions about a population using sample data.
+
+Purpose: To test claims or assumptions about a population parameter.
+
+Importance:
+
+Validates assumptions or theories.
+
+Helps in data-driven decision making.
+
+Widely used in research, quality control, and business strategies.
+
+ANS 4 
+
+Null Hypothesis (H₀): The average weight of male students is less than or equal to that of female students.
+
+Alternative Hypothesis (H₁): The average weight of male students is greater than that of female students.
+
+ANS 5
+
+from scipy.stats import ttest_ind
+
+def test_difference_of_means(sample1, sample2, equal_var=False):
+    t_stat, p_value = ttest_ind(sample1, sample2, equal_var=equal_var)
+    return t_stat, p_value
+
+
+ANS 6
+
+Null Hypothesis (H₀): Assumes no effect or no difference.
+
+Alternative Hypothesis (H₁): Assumes a significant effect or difference.
+
+Examples:
+
+H₀: μ = 50, H₁: μ ≠ 50
+
+H₀: μ₁ = μ₂, H₁: μ₁ ≠ μ₂
+
+H₀: New method is not better than old one, H₁: New method is better
+
+ANS 7
+
+Steps in Hypothesis Testing
+State H₀ and H₁
+
+Choose significance level (α)
+
+Select test statistic
+
+Calculate test statistic value
+
+Determine p-value
+
+Compare p-value with α
+
+Draw conclusion
+
+ANS 8
+
+p-value: Probability of obtaining a result equal to or more extreme than what was observed, assuming H₀ is true.
+
+Significance:
+
+If p ≤ α → Reject H₀ (result is significant)
+
+If p > α → Fail to reject H₀
+
+ANS 9
+
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.stats import t
+
+df = 10
+x = np.linspace(-4, 4, 1000)
+y = t.pdf(x, df)
+
+plt.plot(x, y, label=f't-distribution (df={df})')
+plt.title("Student's t-distribution")
+plt.xlabel('t')
+plt.ylabel('Probability Density')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+
+ANS 10
+
+import numpy as np
+from scipy.stats import ttest_ind
+
+# Example samples
+sample1 = np.random.normal(5, 1, 30)
+sample2 = np.random.normal(5.2, 1, 30)
+
+t_stat, p_value = ttest_ind(sample1, sample2)
+print("t-statistic:", t_stat)
+print("p-value:", p_value)
+
+
+ANS 11
+
+A distribution used when the sample size is small and population standard deviation is unknown.
+
+Use when:
+
+Sample size < 30
+
+Population std dev unknown
+
+ANS 12
+
+The t-statistic measures how many standard errors the sample mean is away from the population mean.
+
+t= (x −μ) s/ (n)^1/2
+Where:
+
+𝑥 : sample mean
+μ: population mean
+s: sample standard deviation
+n: sample size
+​
+ANS 13
+
+import scipy.stats as stats
+import math
+
+mean = 500
+std = 50
+n = 50
+z = stats.norm.ppf(0.975)
+margin = z * (std / math.sqrt(n))
+ci = (mean - margin, mean + margin)
+print("95% CI:", ci)
+
+14
+
+from scipy.stats import t
+
+mu = 10
+sample_mean = 8
+std = 3
+n = 100
+t_stat = (sample_mean - mu) / (std / math.sqrt(n))
+p_value = t.cdf(t_stat, df=n-1)
+
+print("t-statistic:", t_stat)
+print("p-value:", p_value)
+
+
+15
+
+mu = 5
+sample_mean = 4.8
+std = 0.5
+n = 25
+t_stat = (sample_mean - mu) / (std / math.sqrt(n))
+p_value = t.cdf(t_stat, df=n-1)
+
+print("t-statistic:", t_stat)
+print("p-value:", p_value)
+
+
+16
+
+import numpy as np
+from scipy.stats import ttest_ind_from_stats
+
+t_stat, p_value = ttest_ind_from_stats(
+    mean1=80, std1=10, nobs1=30,
+    mean2=75, std2=8, nobs2=40
+)
+
+print("t-statistic:", t_stat)
+print("p-value:", p_value)
+
+
+17
+z = stats.norm.ppf(0.995)
+margin = z * (1.5 / math.sqrt(50))
+ci = (4 - margin, 4 + margin)
+print("99% CI:", ci)
+
+ 
+
+ 
+
