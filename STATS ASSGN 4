@@ -1,0 +1,148 @@
+Q1: Difference between a t-test and a z-test
+t-test:
+
+Used when sample size is small (n < 30) or population standard deviation is unknown.
+
+Example: Comparing the mean test score of a class (n = 20) to a national average.
+
+z-test:
+
+Used when sample size is large (n ≥ 30) and population standard deviation is known.
+
+Example: Comparing the average height of 100 students to a known national average when population std. dev is known.
+
+Q2: One-tailed vs Two-tailed tests
+One-tailed test:
+
+Tests for a direction (e.g., > or <).
+
+Example: Checking if new drug is more effective than old one.
+
+Two-tailed test:
+
+Tests for any difference (≠).
+
+Example: Checking if a new teaching method has a different effect, not necessarily better or worse.
+
+Q3: Type I and Type II Errors
+Type I Error (False Positive): Rejecting a true null hypothesis.
+
+Example: Concluding a person has a disease when they actually don’t.
+
+Type II Error (False Negative): Failing to reject a false null hypothesis.
+
+Example: Concluding a drug has no effect when it actually does.
+
+Q4 Bayes' Theorem with Example
+Formula:
+
+P(A∣B)= P(B∣A)⋅P(A)/ [P(B) ]
+
+​Example:
+
+1% of people have a disease. A test is 99% accurate.
+
+P(Disease) = 0.01, P(Positive|Disease) = 0.99, P(Positive|No Disease) = 0.01
+
+Use Bayes' to calculate P(Disease|Positive).
+
+Q5: What is a Confidence Interval?
+A range where the true population parameter is likely to lie.
+
+Formula: 
+CI= x ±Z⋅ ( σ/ (n)^1/2 )
+Example:
+
+Mean = 100, σ = 15, n = 25, Z = 1.96 (for 95%)
+
+CI = 100 ± 1.96 × (15/√25) = (94.12, 105.88)
+
+Q6: Bayes' Theorem Problem
+Problem: A test for a rare disease is 95% accurate. 2% of the population has it.
+
+P(Disease) = 0.02, P(No Disease) = 0.98
+
+P(Positive|Disease) = 0.95, P(Positive|No Disease) = 0.05
+P(Disease∣Positive)= ≈0.28
+Interpretation: Even with a positive test, only a 28% chance of actually having the disease.
+Q7: 95% Confidence Interval
+Given: Mean = 50, SD = 5, n = unknown → assuming n = 30:
+
+CI = 50 ± 1.96 × (5/√30) ≈ 50 ± 1.79 → (48.21, 51.79)
+
+Interpretation: 95% chance the true mean lies between 48.21 and 51.79.
+
+Q8: Margin of Error and Sample Size
+Margin of Error (MoE): The range added/subtracted from the sample mean.
+
+Formula:
+MoE=Z⋅  ( σ/ (n)^1/2 )
+Impact of sample size:
+
+Larger n → smaller MoE
+
+Example:
+
+Surveying 100 vs 1000 people: larger sample reduces uncertainty and gives more accurate results.
+
+Q9: Z-score Calculation
+Value = 75, Mean = 70, SD = 5
+𝑍= 75−70 / 5 =1.0
+
+Interpretation: The value is 1 standard deviation above the mean.
+Q10: t-test for weight loss drug
+Given: Mean = 6, SD = 2.5, n = 50, μ₀ = 0
+
+t-stat:≈16.98
+Critical t (df = 49) for 95% ≈ 2.009
+
+Since 16.98 > 2.009 → Reject null
+
+Conclusion: Drug is significantly effective.
+
+Q11: 95% CI for Proportion
+n = 500, p = 0.65
+
+≈0.0215
+CI = 0.65 ± 1.96 × 0.0215 ≈ (0.608, 0.692)
+
+Interpretation: True satisfaction rate is likely between 60.8% and 69.2%.
+Q12: t-test for teaching methods
+A: Mean = 85, SD = 6, n₁ = ?,
+B: Mean = 82, SD = 5, n₂ = ? → assuming n = 30 for both
+
+Pooled SD:≈1.426
+t = (85 - 82) / 1.426 ≈ 2.1
+
+Critical t (df ≈ 58, α = 0.01) ≈ 2.66
+
+Since 2.1 < 2.66 → Fail to reject null
+
+Conclusion: No significant difference at 1% level.
+Q13: 90% CI for population mean
+Mean = 65, n = 50, SD = 8
+
+Z = 1.645 (for 90%)
+
+CI = 65 ± 1.645 × (8/√50) ≈ 65 ± 1.86 → (63.14, 66.86)
+
+Q14: t-test for caffeine study
+Mean = 0.25, SD = 0.05, n = 30, μ₀ = assumed baseline (say 0.30s)
+
+t = (0.25 - 0.30)/(0.05/√30) = -0.05 / 0.0091 ≈ -5.49
+Critical t (df = 29, α = 0.10, one-tailed) ≈ 1.311
+
+Since -5.49 < -1.311 → Reject null
+
+Conclusion: Caffeine significantly reduces reaction time at 90% confidence level.
+
+
+​
+ 
+
+
+
+​
+
+
+
