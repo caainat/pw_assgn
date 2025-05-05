@@ -1,0 +1,139 @@
+Q1. What is a time series, and what are some common applications of time series analysis?
+A time series is a sequence of data points collected or recorded at regular time intervals (e.g., hourly, daily, monthly).
+
+Applications:
+
+Forecasting: stock prices, sales, weather
+
+Anomaly Detection: fraud detection, quality control
+
+Trend Analysis: economic indicators, social media trends
+
+Demand Planning: supply chain, energy usage
+
+Q2. What are some common time series patterns, and how can they be identified and interpreted?
+Trend: Long-term increase/decrease (e.g., rising sales)
+
+Seasonality: Repeating patterns at regular intervals (e.g., higher sales in December)
+
+Cyclic Patterns: Irregular fluctuations over longer periods (e.g., economic cycles)
+
+Noise: Random, irregular fluctuations
+
+Identification:
+
+Visual inspection (line plots)
+
+Decomposition methods
+
+ACF plots for seasonality
+
+Q3. How can time series data be preprocessed before applying analysis techniques?
+Handling Missing Values: Interpolation, forward/backward fill
+
+Smoothing: Moving averages, exponential smoothing
+
+Detrending: Differencing or regression
+
+Deseasonalizing: Seasonal decomposition
+
+Transformation: Log or Box-Cox to stabilize variance
+
+Stationarity Check: ADF/KPSS test
+
+Q4. How can time series forecasting be used in business decision-making, and what are some common challenges and limitations?
+Uses:
+
+Inventory management
+
+Marketing campaign planning
+
+Budgeting and revenue forecasting
+
+Challenges:
+
+Data quality and missing values
+
+Sudden structural breaks (e.g., COVID-19)
+
+Model overfitting or underfitting
+
+Assumption violations (e.g., non-stationarity)
+
+Q5. What is ARIMA modelling, and how can it be used to forecast time series data?
+ARIMA (AutoRegressive Integrated Moving Average) combines:
+
+AR (p): Past values
+
+I (d): Differencing for stationarity
+
+MA (q): Past forecast errors
+
+Used for: Forecasting univariate time series after making it stationary
+
+Q6. How do Autocorrelation Function (ACF) and Partial Autocorrelation Function (PACF) plots help in identifying the order of ARIMA models?
+ACF Plot:
+
+Identifies MA (q) order
+
+Sharp cut-off at lag q
+
+PACF Plot:
+
+Identifies AR (p) order
+
+Sharp cut-off at lag p
+
+Gradual decay suggests higher values for p or q
+
+Q7. What are the assumptions of ARIMA models, and how can they be tested for in practice?
+Assumptions:
+
+Stationarity of the series
+
+Linearity
+
+Residuals are white noise (no autocorrelation, constant variance, normality)
+
+Tests:
+
+ADF test for stationarity
+
+Ljung-Box test for autocorrelation
+
+Q-Q plot for residual normality
+
+ACF plot of residuals
+
+Q8. Suppose you have monthly sales data for a retail store for the past three years. Which type of time series model would you recommend for forecasting future sales, and why?
+Recommended Model: SARIMA (Seasonal ARIMA)
+
+Why:
+
+Captures both trend and seasonality (monthly patterns)
+
+Useful for monthly retail sales data which often show seasonal spikes
+
+Q9. What are some of the limitations of time series analysis? Provide an example of a scenario where the limitations of time series analysis may be particularly relevant.
+Limitations:
+
+Assumes past patterns will continue
+
+Sensitive to outliers or sudden changes
+
+Needs a lot of historical data
+
+Example:
+
+During a pandemic or economic crash, previous patterns become irrelevant—forecasts fail.
+
+Q10. Explain the difference between a stationary and non-stationary time series. How does the stationarity of a time series affect the choice of forecasting model?
+Stationary Series: Constant mean and variance over time, no trend/seasonality
+
+Non-Stationary Series: Has trend or changing variance
+
+Effect:
+
+Many models (like ARIMA) require the data to be stationary
+
+Differencing or transformation is needed for non-stationary series
