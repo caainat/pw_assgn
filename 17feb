@@ -1,0 +1,101 @@
+1. 
+MongoDB is a NoSQL, document-oriented database that stores data in JSON-like BSON format (Binary JSON).
+
+Unlike SQL databases, MongoDB doesn't use tables and rows but collections and documents.
+
+Non-relational databases:
+Do not require fixed schemas.
+
+Store data as documents, key-value pairs, graphs, or wide-columns.
+
+Provide high scalability and flexibility.
+
+When to prefer MongoDB over SQL:
+When data is semi-structured or unstructured.
+
+When frequent schema changes are expected.
+
+For real-time analytics or IoT, mobile, or social media apps.
+
+When you need horizontal scalability (sharding).
+
+2. 
+Schema-less: No need to define the structure beforehand.
+
+Document-Oriented Storage: Uses BSON documents.
+
+Scalability: Supports horizontal scaling using sharding.
+
+High Performance: Fast read/write operations.
+
+Indexing: Allows indexing on any field for better performance.
+
+Aggregation: Provides powerful aggregation pipeline.
+
+Replication: Uses replica sets for high availability.
+
+Flexible Querying: Rich query language with filtering, sorting, regex, etc.
+
+3. 
+import pymongo
+
+# Connect to local MongoDB server
+client = pymongo.MongoClient("mongodb://localhost:27017/")
+
+# Create a database named 'mydatabase'
+db = client["mydatabase"]
+
+# Create a collection (similar to a table) named 'students'
+collection = db["students"]
+
+4. # Insert one document
+collection.insert_one({"name": "Alice", "age": 21, "grade": "A"})
+
+# Insert many documents
+students = [
+    {"name": "Bob", "age": 22, "grade": "B"},
+    {"name": "Charlie", "age": 23, "grade": "A"},
+    {"name": "David", "age": 24, "grade": "C"}
+]
+collection.insert_many(students)
+
+# Find one document
+print("Find One:")
+print(collection.find_one())
+
+# Find all documents
+print("\nFind All:")
+for doc in collection.find():
+    print(doc)
+5. 
+find() retrieves all or filtered documents from a collection.
+
+You can pass a query dictionary to filter results.
+
+6. 
+sort() is used to sort query results.
+
+Syntax: collection.find().sort("field", direction)
+
+Direction: 1 for ascending, -1 for descending
+# Sort students by age in descending order
+for student in collection.find().sort("age", -1):
+    print(student)
+
+
+7. 
+delete_one(query): Deletes the first document that matches the query.
+
+delete_many(query): Deletes all documents that match the query.
+
+drop(): Deletes the entire collection, not just the documents.
+
+# Delete one student named Alice
+collection.delete_one({"name": "Alice"})
+
+# Delete all students with grade C
+collection.delete_many({"grade": "C"})
+
+# Drop the entire 'students' collection
+collection.drop()
+
