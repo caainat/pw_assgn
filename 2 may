@@ -1,0 +1,59 @@
+Q1. What is anomaly detection and what is its purpose?
+Anomaly detection is the process of identifying data points, patterns, or observations that deviate significantly from the expected behavior in a dataset.
+
+✅Purpose:
+To detect unusual behavior, errors, or fraud
+Common in fraud detection, system monitoring, cybersecurity, etc.
+
+Q2. What are the key challenges in anomaly detection?
+Lack of labeled data for supervised learning
+Class imbalance (anomalies are rare)
+Dynamic data distributions (concept drift)
+High dimensionality
+No clear boundary between normal and abnormal
+
+Q3. How does unsupervised anomaly detection differ from supervised anomaly detection?
+Criteria	Supervised	Unsupervised
+Labels Required	Yes (normal vs anomaly)	No
+Examples	SVM, Decision Trees	Isolation Forest, LOF, KNN, Autoencoders
+When Used	When labeled training data exists	When no labeled data is available
+
+Q4. What are the main categories of anomaly detection algorithms?
+Statistical-based: Assume data follows a distribution
+Distance-based: KNN, clustering methods
+Density-based: LOF (Local Outlier Factor)
+Isolation-based: Isolation Forest
+Machine Learning-based: SVM, Autoencoders
+Domain-specific or rule-based systems
+
+Q5. What are the main assumptions made by distance-based anomaly detection methods?
+Normal points are close to many others (high density).
+Anomalies are far from most other points (low density).
+Distance or density measures can meaningfully separate anomalies.
+
+Q6. How does the LOF algorithm compute anomaly scores?
+LOF (Local Outlier Factor) compares the local density of a point with that of its neighbors.
+
+Steps:
+Compute k-distance of each point.
+Determine the reachability distance from neighbors.
+Calculate local reachability density (LRD).
+LOF score = average LRD of neighbors / LRD of the point.
+
+Q7. What are the key parameters of the Isolation Forest algorithm?
+n_estimators: Number of trees (default: 100)
+
+max_samples: Subsample size for training each tree
+
+contamination: Estimated proportion of anomalies in the data
+
+max_features: Number of features used per tree
+
+random_state: For reproducibility
+
+Q8. If a data point has only 2 neighbours of the same class within a radius of 0.5, what is its anomaly score using KNN with K=10?
+Since only 2 out of 10 neighbors are of the same class, the point is likely far from similar points and may be anomalous.
+→ Score: 0.8 (High anomaly)
+
+Q9.→ Anomaly score ≈ 0.82 (High score means more likely to be anomalous)
+
