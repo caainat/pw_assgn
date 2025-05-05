@@ -1,0 +1,38 @@
+Q1. What is Web Scraping? Why is it Used? Give three areas where Web Scraping is used to get data.
+Web Scraping is the automated process of extracting data from websites using software or scripts.
+Why it's used:
+To collect large volumes of publicly available data from websites
+To automate manual data collection for analysis
+Three areas where it's commonly used:
+E-commerce: To track prices and competitor products (e.g., scraping Amazon or Flipkart).
+Job Portals: To gather job listings from sites like LinkedIn or Indeed.
+News Aggregation: To collect headlines/articles from various news websites.
+
+Q2. What are the different methods used for Web Scraping?
+Using libraries like requests + BeautifulSoup (for static HTML content)
+Using Selenium (for dynamic content rendered via JavaScript)
+Using APIs (preferred if available) – some sites offer public APIs
+Using headless browsers like Puppeteer or Playwright
+Using web scraping frameworks – e.g., Scrapy (Python-based)
+
+Q3. What is Beautiful Soup? Why is it used?
+Beautiful Soup is a Python library used for parsing HTML and XML documents.
+Why it’s used:
+It allows easy navigation, searching, and modification of the HTML content.
+It turns complex HTML documents into readable, traversable Python objects
+
+Q4. Why is Flask used in this Web Scraping project?
+Flask is used to build a simple web interface or API for the web scraping script.
+ Use in the project:
+To allow users to enter a keyword/search term
+To run the scraping logic based on user input
+To display scraped data in a user-friendly web page or API response
+
+Q5. Write the names of AWS services used in this project. Also, explain the use of each service.
+Assuming you’re deploying the Web Scraping app, here are commonly used AWS services:
+AWS Service	Purpose
+EC2	To host and run your Flask + scraping script on a virtual Linux server
+S3	To store scraped data files (e.g., CSVs or JSONs)
+Lambda	To automate scraping tasks using serverless functions (optional)
+CloudWatch	To monitor logs and track application health
+IAM	To manage access and permissions securely
