@@ -1,0 +1,131 @@
+Q1. What is the role of feature selection in anomaly detection?
+Role: Feature selection improves the performance of anomaly detection by:
+
+Reducing noise and irrelevant data.
+
+Enhancing detection accuracy.
+
+Decreasing computational complexity.
+
+Why it matters: Anomalies can be masked by irrelevant features; selecting the most informative ones makes anomalies stand out.
+
+Q2. What are some common evaluation metrics for anomaly detection algorithms and how are they computed?
+Common Metrics:
+
+Precision = TP / (TP + FP)
+
+Recall (Sensitivity) = TP / (TP + FN)
+
+F1-Score = 2 * (Precision * Recall) / (Precision + Recall)
+
+ROC-AUC: Measures the area under the ROC curve.
+
+Confusion Matrix: Shows TP, TN, FP, FN.
+
+Usage: Especially important when anomalies are rare (imbalanced data).
+
+Q3. What is DBSCAN and how does it work for clustering?
+DBSCAN (Density-Based Spatial Clustering of Applications with Noise):
+
+Groups closely packed points (high-density regions).
+
+Marks low-density regions as outliers (noise).
+
+Steps:
+
+For each point, find all neighbors within eps.
+
+If neighbors ≥ min_samples, it's a core point.
+
+Expand clusters from core points.
+
+Points not reachable are labeled as noise.
+
+Q4. How does the epsilon parameter affect the performance of DBSCAN in detecting anomalies?
+Epsilon (eps): Defines neighborhood radius.
+
+Small eps: Many points labeled as noise → more anomalies detected.
+
+Large eps: Merges distinct clusters → fewer anomalies.
+
+Effect: Incorrect eps can lead to poor clustering or missed outliers.
+
+Q5. What are the differences between the core, border, and noise points in DBSCAN, and how do they relate to anomaly detection?
+Core Point: Has ≥ min_samples within eps.
+
+Border Point: Fewer than min_samples neighbors but within eps of a core point.
+
+Noise Point (Outlier): Not within eps of any core point.
+
+Relation to Anomalies:
+
+Noise points are potential anomalies.
+
+Core and border points belong to clusters (normal behavior).
+
+Q6. How does DBSCAN detect anomalies and what are the key parameters involved in the process?
+Anomaly Detection: Points not in any cluster (noise) are considered anomalies.
+
+Key Parameters:
+
+eps: Neighborhood radius.
+
+min_samples: Minimum points to form a dense region.
+
+Detection Mechanism: Sparse points that don't fit into any cluster become anomalies.
+
+Q7. What is the make_circles package in scikit-learn used for?
+Use: Generates synthetic 2D circular datasets.
+
+Function: sklearn.datasets.make_circles()
+
+Purpose: Testing clustering and anomaly detection algorithms on non-linear data structures.
+
+Q8. What are local outliers and global outliers, and how do they differ from each other?
+Local Outliers: Deviate significantly from nearby points.
+
+Global Outliers: Deviate from the entire dataset.
+
+Difference:
+
+Local: Context-dependent (e.g., in dense clusters).
+
+Global: Stand out universally regardless of locality.
+
+Q9. How can local outliers be detected using the Local Outlier Factor (LOF) algorithm?
+LOF:
+
+Measures how isolated a point is compared to its neighbors.
+
+High LOF score = higher likelihood of being an outlier.
+
+Process:
+
+Compute local density of each point.
+
+Compare a point’s density to its neighbors.
+
+LOF > 1 indicates an outlier.
+
+Q10. How can global outliers be detected using the Isolation Forest algorithm?
+Isolation Forest:
+
+Builds random trees to isolate points.
+
+Anomalies get isolated faster → fewer splits needed.
+
+Detection:
+
+Assigns anomaly score to each point.
+
+Higher score = higher anomaly likelihood.
+
+Q11. What are some real-world applications where local outlier detection is more appropriate than global outlier detection, and vice versa?
+Local and global outlier detection techniques are suited for different real-world scenarios based on the context and distribution of data. 
+Local outlier detection is more appropriate when anomalies need to be identified relative to their immediate neighborhood or subgroup. For instance,
+in credit card fraud detection, a sudden spike in spending for a specific user might be locally abnormal even if it’s within global norms. Similarly,
+in sensor networks, a sensor may give unusual readings compared to nearby sensors, signaling a localized fault. In contrast, global outlier detection
+is ideal when the goal is to find data points that deviate significantly from the entire dataset. For example, in a retail dataset, a customer making
+an extremely large purchase compared to the general population may be a global outlier. Likewise, in healthcare, detecting rare diseases that stand
+out across the whole population requires a global perspective. Thus, the choice between local and global methods depends on whether anomalies are
+relative to surrounding data or the dataset as a whole.
